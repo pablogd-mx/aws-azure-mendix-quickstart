@@ -21,11 +21,12 @@
     - ssh key pair for eksctl
     
 ### For Azure AKS
-    - az cli ( if using Azure AKS)
+    - az cli 
     - A valid Azure subscription
-
+ 
 ### For both clusters:
     - kubectl
+    - helm
     - mxpc-cli - It is packaged here. Download and install the appropriate version from the Mendix platform
 
 ## Note: This has been tested on an Apple Macintosh only
