@@ -1,7 +1,9 @@
-# Aws Mendix quickstart
- AWS Mendix Private Cloud Quickstart
 
-    Scripted install of EKS Cluster in AWS.
+
+# AWS & Azure Mendix quickstart
+ AWS & Azure Mendix Private Cloud Quickstart
+
+    Scripted install of EKS Cluster in AWS and AKS Cluster in Azure.
     Install nginx ingress controllers
     Configure Namespace for mendix
     Deploys a mendix application
@@ -12,18 +14,26 @@
 
 ## Prerequistes:
 
-     aws cli
-     eksctl
-     kubectl
-     Access keys for AWS cli
-     ssh key pair for eksctl
-     mxpc-cli - It is packaged here. Download and install the appropriate version from the Mendix platform
+### For AWS EKS:
+    - aws cli 
+    - eksctl     
+    - Access keys for AWS cli
+    - ssh key pair for eksctl
+    
+### For Azure AKS
+    - az cli ( if using Azure AKS)
+    - A valid Azure subscription
+
+### For both clusters:
+    - kubectl
+    - mxpc-cli - It is packaged here. Download and install the appropriate version from the Mendix platform
 
 ## Note: This has been tested on an Apple Macintosh only
 
 # Configurations
 
-## env.sh
+## AWS
+### env.sh
 
     Update env.sh
 
@@ -51,6 +61,13 @@
     export MENDIX_REGISTRY_NAME="default-docker-virtual\/mendixapp"
     export MENDIX_AUTH_USER="TODO:"
     export MENDIX_AUTH_PW="TODO:"
+
+# Azure AKS
+## env-aks.sh 
+export AZ_LOCATION="" 
+export AZ_RESOURCE_GROUP="" 
+export AZ_CLUSTER_NAME=""
+
 
 ## Ensure that you can run mxpc-cli
    Your Mac's security sesttings may prevent the downloaded mxpc-cli from executing.
