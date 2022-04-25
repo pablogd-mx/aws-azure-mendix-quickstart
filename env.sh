@@ -26,4 +26,3 @@ export MENDIX_REGISTRY_PUSH_URL="TODO:"
 export MENDIX_REGISTRY_NAME="default-docker-virtual\/mendixapp"
 export MENDIX_AUTH_USER="TODO:"
 export MENDIX_AUTH_PW="TODO:"
-
