@@ -9,8 +9,8 @@ command -v az > /dev/null || { echo "'az' command not not found" 1>&2; exit 1; }
 command -v jq > /dev/null || { echo "'jq' command not not found" 1>&2; exit 1; }
 
 ## Default variables
+ 
 AZ_VM_SIZE=${AZ_VM_SIZE:-Standard_B2ms}
-KUBECONFIG=${KUBECONFIG:-$HOME/.kube/${AZ_CLUSTER_NAME}.yaml}
 
 ## Check for required variables
 [[ -z "${AZ_RESOURCE_GROUP}" ]] && { echo 'AZ_RESOURCE_GROUP not specified. Aborting' 1>&2 ; exit 1; }
@@ -49,6 +49,6 @@ if az group list | jq '.[].name' -r | grep -q ${AZ_RESOURCE_GROUP}; then
     az aks get-credentials \
       --resource-group ${AZ_RESOURCE_GROUP} \
       --name ${AZ_CLUSTER_NAME} \
-      --file ${KUBECONFIG}
+      
   fi
 fi
