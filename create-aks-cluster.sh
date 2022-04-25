@@ -1,12 +1,15 @@
 #!/usr/bin/env bash
 set -x
 
+echo " Please login to Azure first:"
+az login
+
 ## Check for required commands
 command -v az > /dev/null || { echo "'az' command not not found" 1>&2; exit 1; }
 command -v jq > /dev/null || { echo "'jq' command not not found" 1>&2; exit 1; }
 
 ## Default variables
-AZ_VM_SIZE=${AZ_VM_SIZE:-Standard_DS2_v2}
+AZ_VM_SIZE=${AZ_VM_SIZE:-Standard_B2ms}
 KUBECONFIG=${KUBECONFIG:-$HOME/.kube/${AZ_CLUSTER_NAME}.yaml}
 
 ## Check for required variables
@@ -34,8 +37,8 @@ if az group list | jq '.[].name' -r | grep -q ${AZ_RESOURCE_GROUP}; then
         --node-vm-size ${AZ_VM_SIZE} \
         --load-balancer-sku standard \
         --enable-managed-identity \
-        --node-count 3 \
-        --zones 1 2 3
+        --node-count 1 \
+        --zones 1 
   else
     echo "'${AZ_CLUSTER_NAME}' Kubernetes cluster is already created, skipping."
   fi

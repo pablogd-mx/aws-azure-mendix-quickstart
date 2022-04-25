@@ -1,0 +1,3 @@
+export AZ_LOCATION=westeurope
+export AZ_RESOURCE_GROUP=mendix-test
+export AZ_CLUSTER_NAME=mendix-test
